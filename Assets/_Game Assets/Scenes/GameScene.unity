@@ -1632,7 +1632,7 @@ MonoBehaviour:
   _oriantationTransform: {fileID: 1358857297}
   _movementSpeed: 15
   _jumpKey: 32
-  _jumpForce: 2
+  _jumpForce: 7.5
   _canJump: 1
   _jumpCooldown: 0.5
   _playerHeight: 1

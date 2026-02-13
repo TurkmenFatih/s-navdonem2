@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     
     [Header("Movement Settings")]    
 
+    [SerializeField]private KeyCode _movementKey;
+
     [SerializeField]private float _movementSpeed;
 
     [Header("Jump Settings")]
@@ -20,11 +22,21 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float _jumpCooldown;
 
-    [Header("Ground Chechk Setting")]
+    [Header("sliding Settings")]
+
+    [SerializeField] private KeyCode _slideKey;
+     
+    [SerializeField] private float _slideMultipiler; 
+
+    [SerializeField] private float _slideDrag;
+
+    [Header("Ground Chechk Settings")]
 
     [SerializeField] private float _playerHeight;
 
     [SerializeField] private LayerMask _groundedLayer;
+
+    [SerializeField] private float _groundDrag;
 
 
     private Rigidbody _playerRigiBody ;
@@ -33,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3  _movementDirection;
 
+    private bool _isSliding;
    
     void Awake()
     {
@@ -43,6 +56,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         SetInputs();
+        SetPlayerDrag();
+        PlayerSpeedLimit();
         
     }
 
@@ -51,11 +66,45 @@ public class PlayerController : MonoBehaviour
         SetPlayerMovement();
     }
 
+    private void SetPlayerDrag()
+    {
+        if (_isSliding)
+        {
+            _playerRigiBody.linearDamping=_slideDrag;
+        }
+        else
+        {
+             _playerRigiBody.linearDamping=_groundDrag;
+        }
+    }
+
+    private void PlayerSpeedLimit()
+    {
+        Vector3 flatVecolity = new  Vector3(_playerRigiBody.linearVelocity.x , 0f , _playerRigiBody.linearVelocity.z);
+
+        if (flatVecolity.magnitude> _movementSpeed)
+        {
+            Vector3 limitedVelocity =  flatVecolity.normalized*_movementSpeed;
+            _playerRigiBody.linearVelocity= new Vector3(limitedVelocity.x, _playerRigiBody.linearVelocity.y,limitedVelocity.z);
+        }
+    }
+
     private void SetInputs()
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical") ;
-        if (Input.GetKey(_jumpKey) && _canJump &&IsGrounded())
+        if (Input.GetKeyDown(_slideKey))
+        {
+            _isSliding=true;
+            Debug.Log("Player Sliding");
+        }
+        else if (Input.GetKeyDown(_movementKey))
+        {
+            _isSliding=false;
+            Debug.Log("Player Moving");
+        }
+
+        else if (Input.GetKey(_jumpKey) && _canJump &&IsGrounded())
         {
             //ZIPLAMA İŞLEMİ YAPACAK! //
             _canJump=false;
@@ -68,8 +117,16 @@ public class PlayerController : MonoBehaviour
     {
         _movementDirection = _oriantationTransform.forward * _verticalInput 
         + _oriantationTransform.right * _horizontalInput;
+       if (_isSliding)
+       {
+         _playerRigiBody.AddForce(_movementDirection.normalized * _movementSpeed* _slideMultipiler ,ForceMode.Force );
+       }
 
-        _playerRigiBody.AddForce(_movementDirection.normalized * _movementSpeed ,ForceMode.Force );
+       else
+       {
+         _playerRigiBody.AddForce(_movementDirection.normalized * _movementSpeed ,ForceMode.Force );
+       }
+        
     }
     private void SetPlayerJumping()
     {
