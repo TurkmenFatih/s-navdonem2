@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -320,6 +321,22 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b863d4247b55b459b10336efdc1996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 1234336470}
+  _oriantationTransform: {fileID: 1358857297}
+  _playerVisualTransform: {fileID: 6933038824157815891}
+  _rotationSpeed: 7
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +501,7 @@ GameObject:
   - component: {fileID: 432081042}
   - component: {fileID: 432081041}
   m_Layer: 0
-  m_Name: 'WheelRight '
+  m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1575,6 +1592,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1234336470}
   - component: {fileID: 1234336471}
+  - component: {fileID: 1234336473}
+  - component: {fileID: 1234336472}
   - component: {fileID: 1234336469}
   - component: {fileID: 1234336468}
   m_Layer: 0
@@ -1678,6 +1697,31 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _groundDrag: 0
+--- !u!114 &1234336472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234336467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2745e86f051e4f442b058c941d178963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 7745288382961123050}
+--- !u!114 &1234336473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234336467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512320a45344e264b8e21374dfad6dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1358857296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,7 +2315,7 @@ GameObject:
   - component: {fileID: 6115491433174614889}
   - component: {fileID: 694999805289470981}
   m_Layer: 0
-  m_Name: WheelLeft
+  m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2434,6 +2478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6933038824157815891}
+  - component: {fileID: 7745288382961123050}
   m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
@@ -2441,6 +2486,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &7745288382961123050
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7745288382961123049}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f4d84c15e5637f459f5b80cd4203531, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7923746624972045157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,7 +2518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6209710687933198095}
   m_Layer: 0
-  m_Name: root
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

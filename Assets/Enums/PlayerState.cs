@@ -1,16 +1,12 @@
 using UnityEngine;
 
-public class PlayerState : MonoBehaviour
+public enum PlayerState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    Idle,
+    Move,
+    Jump,
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    SlideIdle,
+
+    Slide 
 }
