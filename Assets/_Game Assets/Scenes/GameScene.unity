@@ -1649,9 +1649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17d682600069d34795ac76b9579cfdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: 0}
-  _ForceIncrase: 0
-  _resetBoostDirection: 0
+  _playerController: {fileID: 1234336471}
+  _ForceIncrase: 8
+  _resetBoostDirection: 5
 --- !u!1 &1142922237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,8 +1720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 1234336471}
-  _movementIncraseSpeed: 0
-  _resetBoostDirection: 0
+  _movementIncraseSpeed: 15
+  _resetBoostDirection: 5
 --- !u!1 &1153322369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,9 +1789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d0652502830864db8b5ba863e788e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: 0}
-  _movementDecreaseSpeed: 0
-  _resetBoostDirection: 0
+  _playerController: {fileID: 1234336471}
+  _movementDecreaseSpeed: -25
+  _resetBoostDirection: 5
 --- !u!1 &1234336467
 GameObject:
   m_ObjectHideFlags: 0

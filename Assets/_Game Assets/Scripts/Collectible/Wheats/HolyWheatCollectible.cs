@@ -10,7 +10,7 @@ public class HolyWheatCollectible : MonoBehaviour
 
      public void Collect()
     {
-      _playerController.SetMovementSpeed(_ForceIncrase, _resetBoostDirection);
+      _playerController.SetJumpForce(_ForceIncrase, _resetBoostDirection);
       Destroy(gameObject);
     }
 }
