@@ -109,4 +109,14 @@ public class PlayerStateUI : MonoBehaviour
     {
         StartCoroutine(SetBoosterUserInterface(activeTransform,boosterImage,wheatImage,activeSprite,passiveSprite ,activeWheatSprite,passiveWheatSprite,duration));
     }
+
+    internal void PlayBoosterUIanimator(RectTransform playerBoosterTransform, Microsoft.Unity.VisualStudio.Editor.Image playerBoosterImage, PlayerStateUI playerStateUI, Sprite activeSprite, Sprite passiveSprite, Sprite activeWheatSprite, Sprite passiveWheatSprite, float resetBoostDirection)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void PlayBoosterUIanimator(RectTransform playerBoosterTransform, Image playerBoosterImage, PlayerStateUI playerStateUI, Sprite activeSprite, Sprite passiveSprite, Sprite activeWheatSprite, Sprite passiveWheatSprite, float resetBoostDirection)
+    {
+        throw new NotImplementedException();
+    }
 }
